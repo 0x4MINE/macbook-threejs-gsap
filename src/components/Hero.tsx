@@ -33,7 +33,7 @@ const Hero = () => {
         Buy
       </button>
       <p className="base-semibold z-10 lg:h3-semibold">
-        from $1599 or $133/mo for 12 months
+        From $1599 or $133/mo. for 12 months
       </p>
     </section>
   );
