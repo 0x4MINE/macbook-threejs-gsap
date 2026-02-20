@@ -7,9 +7,13 @@ export const useMacboookStore = create((set) => ({
   scale: 0.08,
   setScale: (scale: number) => set({ scale }),
 
+  texture: "/videos/feature-1.mp4",
+  setTexture: (texture: string) => set({ texture }),
+
   reset: () =>
     set({
       color: "#2e2c2e",
       scale: 0.08,
+      texture: "/videos/feature-1.mp4",
     }),
 }));

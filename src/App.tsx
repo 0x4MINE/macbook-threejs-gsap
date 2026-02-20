@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Showcase from "./components/Showcase";
 import { useGSAP } from "@gsap/react";
+import Performance from "./components/Performance";
+import Features from "./components/Features";
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
@@ -14,7 +16,9 @@ function App() {
       <Navbar />
       <Hero />
       <ProductViewer />
-      <Showcase/>
+      <Showcase />
+      <Performance/>
+      <Features />
     </main>
   );
 }
