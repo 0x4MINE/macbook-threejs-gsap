@@ -3,22 +3,30 @@ import { useEffect } from "react";
 import { useMacboookStore } from "../../store";
 import { noChangeParts } from "../../constants";
 import * as THREE from "three";
-export default function Macbook14(props) {
+import type { MacbookProps } from "../../interfaces";
+export default function Macbook14(props: MacbookProps) {
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-14-transformed.glb",
-  );
+  ) as unknown as {
+    nodes: Record<string, THREE.Mesh>;
+    materials: Record<string, THREE.MeshStandardMaterial>;
+    scene: THREE.Group;
+  };
   const { color } = useMacboookStore();
   const texture = useTexture("/screen.png");
 
   useEffect(() => {
     scene.traverse((child) => {
-      if (child.isMesh) {
-        if (!noChangeParts.includes(child.name)) {
-          child.material.color = new THREE.Color(color);
+      if ((child as THREE.Mesh).isMesh) {
+        const mesh = child as THREE.Mesh;
+        if (!noChangeParts.includes(mesh.name)) {
+          (mesh.material as THREE.MeshStandardMaterial).color = new THREE.Color(
+            color,
+          );
         }
       }
     });
-  }, [color,scene]);
+  }, [color, scene]);
 
   return (
     <group {...props} dispose={null}>

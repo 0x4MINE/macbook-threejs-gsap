@@ -1,3 +1,5 @@
+import type { ImageIF, PositionIF } from "../interfaces";
+
 export const navLinks = [
   { label: "Store" },
   { label: "Mac" },
@@ -25,7 +27,7 @@ export const noChangeParts = [
   "Object_10",
 ];
 
-export const performanceImages = [
+export const performanceImages: ImageIF[] = [
   { id: "p1", src: "/performance1.png" },
   { id: "p2", src: "/performance2.png" },
   { id: "p3", src: "/performance3.png" },
@@ -35,7 +37,7 @@ export const performanceImages = [
   { id: "p7", src: "/performance7.png" },
 ];
 
-export const performanceImgPositions = [
+export const performanceImgPositions: PositionIF[] = [
   {
     id: "p1",
     left: 5,

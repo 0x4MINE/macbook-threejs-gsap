@@ -9,9 +9,9 @@ import { Html } from "@react-three/drei";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useMacboookStore } from "../store";
-
+import * as THREE from "three";
 const ModelScroll = () => {
-  const groupRef = useRef(null);
+  const groupRef = useRef<THREE.Group>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const { setTexture } = useMacboookStore();
   useEffect(() => {

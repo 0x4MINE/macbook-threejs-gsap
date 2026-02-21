@@ -49,13 +49,11 @@ const Performance = () => {
         if (item.id === "p5") return;
 
         const selector = `.${item.id}`;
-        const vars = {};
+        const vars: any = {};
 
         if (typeof item.left === "number") vars.left = `${item.left}%`;
         if (typeof item.right === "number") vars.right = `${item.right}%`;
         if (typeof item.bottom === "number") vars.bottom = `${item.bottom}%`;
-
-        if (item.transform) vars.transform = item.transform;
 
         tl.to(selector, vars, 0);
       });

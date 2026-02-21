@@ -3,19 +3,27 @@ import { useMacboookStore } from "../../store";
 import { useEffect } from "react";
 import { noChangeParts } from "../../constants";
 import * as THREE from "three";
-export function MacbookModel(props) {
+import type { MacbookProps } from "../../interfaces";
+export function MacbookModel(props: MacbookProps) {
   const { color, texture } = useMacboookStore();
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-transformed.glb",
-  );
+  ) as unknown as {
+    nodes: Record<string, THREE.Mesh>;
+    materials: Record<string, THREE.MeshStandardMaterial>;
+    scene: THREE.Group;
+  };
 
   const screenTexture = useVideoTexture(texture);
 
   useEffect(() => {
     scene.traverse((child) => {
-      if (child.isMesh) {
-        if (!noChangeParts.includes(child.name)) {
-          child.material.color = new THREE.Color(color);
+      if ((child as THREE.Mesh).isMesh) {
+        const mesh = child as THREE.Mesh;
+        if (!noChangeParts.includes(mesh.name)) {
+          (mesh.material as THREE.MeshStandardMaterial).color = new THREE.Color(
+            color,
+          );
         }
       }
     });

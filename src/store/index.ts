@@ -1,6 +1,7 @@
 import { create } from "zustand";
+import type { MacbookStore } from "../interfaces";
 
-export const useMacboookStore = create((set) => ({
+export const useMacboookStore = create<MacbookStore>((set) => ({
   color: "#2e2c2e",
   setColor: (color: string) => set({ color }),
 
