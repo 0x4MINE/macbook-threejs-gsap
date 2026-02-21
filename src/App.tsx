@@ -8,6 +8,7 @@ import Showcase from "./components/Showcase";
 import { useGSAP } from "@gsap/react";
 import Performance from "./components/Performance";
 import Features from "./components/Features";
+import Highlights from "./components/Highlights";
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
@@ -17,8 +18,9 @@ function App() {
       <Hero />
       <ProductViewer />
       <Showcase />
-      <Performance/>
+      <Performance />
       <Features />
+      <Highlights />
     </main>
   );
 }
