@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import Performance from "./components/Performance";
 import Features from "./components/Features";
 import Highlights from "./components/Highlights";
+import Footer from "./components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Performance />
       <Features />
       <Highlights />
+      <Footer />
     </main>
   );
 }
